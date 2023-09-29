@@ -107,8 +107,6 @@ fastfetch
 
 alias pip="python -m pip"
 
-# alias onedrive='onedrive --single-directory "IMC Krems/Semester 6" --monitor'
-
 alias spotify='env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U'
 
 alias hibernate="systemctl hibernate"
