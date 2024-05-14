@@ -1,8 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/home/nocturnal/.local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+# Set ANDROID_ROOT_SDK environment variable
+export ANDROID_ROOT_SDK=$HOME/Library/Android/sdk
+export PATH="/Users/<your-user-name>/Library/Android/sdk/emulator:$PATH"
+# Android SDK command-line dirs:
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,10 +78,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo history zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git sudo zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/nvm/init-nvm.sh
 
 # User configuration
 
@@ -100,17 +107,23 @@ source /usr/share/nvm/init-nvm.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# Open project in Android Studio:
+alias androidstudio='open -a /Applications/Android\ Studio.app .'
+#Run adb commands:
+alias adb='/Users/marwin/Library/Android/sdk/platform-tools/adb'
+# Sourcing nvm
+source $(brew --prefix nvm)/nvm.sh
 
-# neofetch
+# Adding python to PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init --path)"
+ eval "$(pyenv init -)"
+fi
 
-fastfetch
+# disable the special treatment the character ! completely
+unsetopt BANG_HIST
 
-alias pip="python -m pip"
-
-alias spotify='env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U'
-
-alias hibernate="systemctl hibernate"
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# alias for thefuck
+eval $(thefuck --alias)
