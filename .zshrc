@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 # Set ANDROID_ROOT_SDK environment variable
 export ANDROID_ROOT_SDK=$HOME/Library/Android/sdk
-export PATH="/Users/<your-user-name>/Library/Android/sdk/emulator:$PATH"
+export PATH="/Users/marwin/Library/Android/sdk/emulator:$PATH"
 # Android SDK command-line dirs:
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
